@@ -12,6 +12,8 @@ export default defineConfig({
     sourcemap: true, // 启用Sourcemap
     // 更多配置...
   },
+    // base: process.env.NODE_ENV === 'production' ? '/vite_general_han20200101/' : '/',
+    base:'./',
 
   // resolve: {
   //   alias: {
