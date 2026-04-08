@@ -27,6 +27,6 @@ jobs:
       - name: 部署到 GitHub Pages
         uses: JamesIves/github-pages-deploy-action@v4
         with:
-          branch: gh-pages
+          branch: deploy-gh-pages
           folder: build
           clean: true
