@@ -22,4 +22,4 @@ Note: This will impact Vite dev & build performances.
 
 3.upload-pages-artifact@v3--上传构建产物
 
-4.deploy-pages@v4
+4.deploy-pages@v4--部署到github pages
