@@ -26,24 +26,24 @@ jobs:
 
       # 5. 设置 Node.js 环境
       - name: 设置 Node.js 环境
-        # uses: actions/setup-node@v4
-        uses: actions/setup-node@v6.3.0
+        uses: actions/setup-node@v4
         with:
           node-version: "24"
-          cache: "npm"
-
-      # 6. 安装依赖并构建
+          # cache: "npm"
+      - name: 安装 pnpm
+        run: npm install -g pnpm
+        # 6. 安装依赖并构建
       - name: 安装依赖
-        run: npm ci
+        # run: npm ci
+        run: pnpm install
 
       - name: 构建项目
-        run: npm run build
+        run: pnpm run build
         # 请确保构建命令的输出目录是 './build'，如不是请修改下方步骤的 path 参数
 
       # 7. (新版关键步骤) 上传构建产物为工件
       - name: 上传 GitHub Pages 工件
-        # uses: actions/upload-pages-artifact@v3
-        uses: actions/upload-pages-artifact@v4.0.0
+        uses: actions/upload-pages-artifact@v3
         with:
           # 指定构建产物的目录，通常是 'build' 或 'dist'
           path: './dist'
@@ -51,6 +51,5 @@ jobs:
       # 8. (新版关键步骤) 部署工件到 GitHub Pages
       - name: 部署到 GitHub Pages
         id: deployment
-        # uses: actions/deploy-pages@v4
-        uses: actions/deploy-pages@v3.0.2-node.24
+        uses: actions/deploy-pages@v4
           
