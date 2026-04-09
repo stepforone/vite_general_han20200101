@@ -26,7 +26,8 @@ jobs:
 
       # 5. 设置 Node.js 环境
       - name: 设置 Node.js 环境
-        uses: actions/setup-node@v4
+        # uses: actions/setup-node@v4
+        uses: actions/setup-node@v6.3.0
         with:
           node-version: "24"
           cache: "npm"
@@ -41,7 +42,8 @@ jobs:
 
       # 7. (新版关键步骤) 上传构建产物为工件
       - name: 上传 GitHub Pages 工件
-        uses: actions/upload-pages-artifact@v3
+        # uses: actions/upload-pages-artifact@v3
+        uses: actions/upload-pages-artifact@v4.0.0
         with:
           # 指定构建产物的目录，通常是 'build' 或 'dist'
           path: './dist'
@@ -49,6 +51,6 @@ jobs:
       # 8. (新版关键步骤) 部署工件到 GitHub Pages
       - name: 部署到 GitHub Pages
         id: deployment
-        uses: actions/deploy-pages@v4
-
+        # uses: actions/deploy-pages@v4
+        uses: actions/deploy-pages@v3.0.2-node.24
           
